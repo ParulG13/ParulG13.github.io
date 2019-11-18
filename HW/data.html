@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>"Lattitude Dashboard"</title>
+    <!-- Using CSS from Bootswatch -->
+    <link rel="stylesheet" href="bootstrap-united.css">
+    <link rel="stylesheet" href="new-style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- for CSV to HTML --> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div id="header">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a class="navbar-brand" href="Landing_page.html">Lattitude</a>
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Plots
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="temperature.html">Max Temperature</a>
+                            <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+                            <a class="dropdown-item" href="humidity.html">Humidity</a>
+                            <a class="dropdown-item" href="wind.html">Wind Speed</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="compare.html">Comparison</a></li>
+                    <li class="nav-item"><a class="nav-link" href="data.html">Data</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="table-responsive">
+            <h1>Data</h1>
+            <br />
+            <h4>The following table has all of the data used for plotting during this project.</h4>
+            <br />
+            <div>
+                <button type="button" name="load_data" id="load_data" class="btn btn-info">Load Data</button>
+            </div>
+            <br />
+            <div id="cities_data">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<!-- script to get data from csv into a html table -->
+<script>
+    $(document).ready(function () {
+        $('#load_data').click(function () {
+            $.ajax({
+                url: "cities.csv",
+                dataType: "text",
+                success: function (data) {
+                    var city_data = data.split(/\r?\n|\r/);
+                    var table_data = '<table class="table table-bordered table-striped">';
+                    for (var count = 0; count < city_data.length; count++) {
+                        var cell_data = city_data[count].split(",");
+                        table_data += '<tr>';
+                        for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+                            if (count === 0) {
+                                table_data += '<th>' + cell_data[cell_count] + '</th>';
+                            }
+                            else {
+                                table_data += '<td>' + cell_data[cell_count] + '</td>';
+                            }
+                        }
+                        table_data += '</tr>';
+                    }
+                    table_data += '</table>';
+                    $('#cities_data').html(table_data);
+                }
+            });
+        });
+
+    });
+</script>

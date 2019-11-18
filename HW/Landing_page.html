@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>"Lattitude Dashboard"</title>
+    <!-- Using CSS from Bootswatch -->
+    <link rel="stylesheet" href="bootstrap-united.css">
+    <link rel="stylesheet" href="new-style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div id="header">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a class="navbar-brand" href="Landing_page.html">Lattitude</a>
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Plots
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="temperature.html">Max Temperature</a>
+                            <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+                            <a class="dropdown-item" href="humidity.html">Humidity</a>
+                            <a class="dropdown-item" href="wind.html">Wind Speed</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="compare.html">Comparison</a></li>
+                    <li class="nav-item"><a class="nav-link" href="data.html">Data</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- https://getbootstrap.com/docs/4.3/layout/overview/#responsive-breakpoints -->
+    <div class="container">
+        <!-- Content here -->
+        <div class="row">
+            <div class="col-md-8 pad top">
+                <br />
+                <h3>Summary: Latitude Vs X</h3>
+            </div>
+            <div class="col-md-4 pad top">
+                <!-- <div class="p-3 border bg-light">Visualizations</div> -->
+                <br />
+                <h3>Visualizations</h3>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6 pad top"> <br>
+                <div class="">
+                    <img src="images/Fig1.png" class="pr-2 img-fluid float-left" alt="Latitude vs. Max Temperature" width="60%" height="60%">
+                </div>
+
+                <div class="p-3">
+                    <p>Whether financial, political, or social -- data's true power lies in
+                        its ability to answer questions definitively. So let's take what you've learned about Python
+                        requests, APIs, and JSON traversals to answer a fundamental question: "What's the weather like
+                        as we approach the equator?"
+                        Now, we know what you may be thinking: "Duh. It gets hotter..."
+                        But, if pressed, how would you prove it???</p>
+                    <br />
+                    <p> An explanation of the project: This project analyzes the weather
+                        changes based on the latitude of the loaction. To accomplish this analysis,
+                        we created a Python script to visualize the weather of
+                        500+ cities across the world of varying distance from the equator. </p> <br>
+                </div>
+
+            </div>
+
+            <div class="col-md-3 pad top"> <br>
+
+                <div class="pull-right">
+                    <a href="temperature.html"><img src="images/Fig1.png" alt="Latitude vs. Max Temperature"
+                            width="100%" height="100%"></a>
+                    <a href="wind.html"><img src="images/Fig4.png" alt="Latitude vs. Wind Speed" width="100%"
+                            height="100%"></a>
+                </div>
+
+            </div>
+
+            <div class="col-md-3 pad top"> <br>
+
+                <div class="pull-right">
+                    <a href="humidity.html"><img src="images/Fig2.png" alt="Latitude vs. Humidity" width="100%"
+                            height="100%"></a>
+                    <a href="cloudiness.html"><img src="images/Fig3.png" alt="Latitude vs. Cloudiness" width="100%"
+                            height="100%"></a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
